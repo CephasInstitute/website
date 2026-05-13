@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --background: #e6dacb; /* brand-stone */
+  --foreground: #1a1a1a; /* brand-charcoal */
+  --color-brand-stone: #e6dacb;
+  --color-brand-sage: #73836f;
+  --color-brand-charcoal: #1a1a1a;
+  
+  /* Retaining some of the old palette for legacy components if not fully migrated, but they will be phased out */
+  --color-primary: #73836f; /* mapping primary to sage now */
+  --color-secondary: #C6934A;
+  --color-sand: #e6dacb; /* mapping sand to stone */
+  --color-sage-light: #e9f2eb;
+  --color-sage-mid: #c9dfce;
+  --color-sage-dark: #7b8e7e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-stone: var(--color-brand-stone);
+  --color-brand-sage: var(--color-brand-sage);
+  --color-brand-charcoal: var(--color-brand-charcoal);
+  
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-sand: var(--color-sand);
+  --color-sage-light: var(--color-sage-light);
+  --color-sage-mid: var(--color-sage-mid);
+  --color-sage-dark: var(--color-sage-dark);
+  
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-sans: var(--font-body); /* Default sans is body font */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), sans-serif;
+}

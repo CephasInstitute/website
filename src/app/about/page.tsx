@@ -97,8 +97,7 @@ export default function AboutPage() {
             {/* Gabriella */}
             <div className="flex flex-col md:flex-row gap-10 items-center">
               <div className="w-full md:w-1/3 aspect-square relative rounded-full overflow-hidden border-4 border-white shadow-xl flex-shrink-0">
-                {/* Fallback image placeholder or actual photo if available */}
-                <Image src="/about_us_team_1778644316981.png" alt="Gabriella De Oliveira" fill className="object-cover" />
+                <Image src="/gabriella_founder.jpg" alt="Gabriella De Oliveira" fill className="object-cover object-[35%_25%] scale-[1.15]" />
               </div>
               <div className="w-full md:w-2/3">
                 <h3 className="text-2xl font-bold text-brand-charcoal">Gabriella De Oliveira</h3>

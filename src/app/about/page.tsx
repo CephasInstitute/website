@@ -118,9 +118,8 @@ export default function AboutPage() {
 
             {/* John */}
             <div className="flex flex-col md:flex-row-reverse gap-10 items-center">
-              <div className="w-full md:w-1/3 aspect-square relative rounded-full overflow-hidden border-4 border-white shadow-xl flex-shrink-0 bg-brand-charcoal/5 flex items-center justify-center">
-                {/* Placeholder for John's image. Can use the same style or logo for now. */}
-                <Image src="/logo.png" alt="John De Oliveira" width={120} height={120} className="object-contain opacity-20" />
+              <div className="w-full md:w-1/3 aspect-square relative rounded-full overflow-hidden border-4 border-white shadow-xl flex-shrink-0">
+                <Image src="/john_founder.jpg" alt="John De Oliveira" fill className="object-cover object-[50%_35%] scale-[1.15] -translate-x-1" />
               </div>
               <div className="w-full md:w-2/3 md:text-right">
                 <h3 className="text-2xl font-bold text-brand-charcoal">John De Oliveira</h3>

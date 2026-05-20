@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Open_Sans } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
@@ -28,7 +31,14 @@ export default function RootLayout({
       lang="en"
       className={`${bebasNeue.variable} ${openSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col relative bg-brand-stone">
+        <Navbar />
+        <main className="flex-1 w-full">
+          {children}
+        </main>
+        <Footer />
+        <ScrollToTop />
+      </body>
     </html>
   );
 }

@@ -182,7 +182,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Form Body */}
+{/* Form Body */}
             {isSuccess ? (
               <div className="p-8 md:p-12 text-center space-y-4">
                 <div className="w-20 h-20 bg-[var(--color-brand-sage)] rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
@@ -193,7 +193,10 @@ export default function Home() {
                   Your interest form has been submitted successfully. We will be in touch with you shortly regarding the next steps for enrollment.
                 </p>
                 <button
-                  onClick={() => setIsSuccess(false)}
+                  onClick={() => {
+                    setIsSuccess(false);
+                    setStudents([{ id: Date.now() }]); // reset student inputs too
+                  }}
                   className="mt-8 text-[var(--color-brand-sage)] font-semibold hover:underline"
                 >
                   Submit another response

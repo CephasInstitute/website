@@ -59,7 +59,7 @@ export default function Home() {
               Foundations That <span className="text-[var(--color-brand-sage)]">Last.</span>
             </h1>
             <p className="mt-4 text-xl md:text-2xl text-brand-charcoal/70 mb-10 leading-relaxed font-light">
-              A faith-centered, K-8 micro-school in Fort Myers, FL. <br className="hidden md:block" />
+              A faith-centered, 5-8 micro-school in Fort Myers, FL. <br className="hidden md:block" />
               Equipping students with strong academics, character, and purpose.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">

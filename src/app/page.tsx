@@ -257,43 +257,77 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Student Info */}
+{/* Student Info */}
                 <div>
                   <h4 className="text-xl font-bold text-brand-charcoal mb-6 flex items-center border-b pb-2">
                     <BookOpen className="h-5 w-5 mr-2 text-[var(--color-brand-sage)]" />
                     Student Information
                   </h4>
 
-                  {/* Single Student Block */}
-                  <div className="bg-brand-stone/50 p-6 rounded-2xl border border-brand-charcoal/10 mb-4 space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="space-y-2 md:col-span-2">
-                        <label className="text-sm font-medium text-brand-charcoal/80">Student Name</label>
-                        <input type="text" name="Student Name" className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all bg-brand-stone" placeholder="Student's Full Name" required />
-                      </div>
-                      <div className="space-y-2">
-                        <label className="text-sm font-medium text-brand-charcoal/80">Date of Birth</label>
-                        <input type="date" name="Date of Birth" className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all bg-brand-stone text-brand-charcoal/80" required />
-                      </div>
-                      <div className="space-y-2">
-                        <label className="text-sm font-medium text-brand-charcoal/80">Entering Grade</label>
-                        <select name="Entering Grade" defaultValue="" className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all bg-brand-stone text-brand-charcoal/80" required>
-                          <option value="" disabled>Select Grade</option>
-                          <option value="k">Kindergarten</option>
-                          <option value="1">1st Grade</option>
-                          <option value="2">2nd Grade</option>
-                          <option value="3">3rd Grade</option>
-                          <option value="4">4th Grade</option>
-                          <option value="5">5th Grade</option>
-                          <option value="6">6th Grade</option>
-                          <option value="7">7th Grade</option>
-                          <option value="8">8th Grade</option>
-                        </select>
+                  {/* Dynamic Student Blocks */}
+                  {students.map((student, index) => (
+                    <div key={student.id} className="bg-brand-stone/50 p-6 rounded-2xl border border-brand-charcoal/10 mb-4 space-y-6 relative">
+                      {students.length > 1 && (
+                        <button
+                          type="button"
+                          onClick={() => removeStudent(student.id)}
+                          className="absolute top-4 right-6 text-xs text-red-600 hover:text-red-800 transition-colors font-medium"
+                        >
+                          Remove Student
+                        </button>
+                      )}
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-2 md:col-span-2">
+                          <label className="text-sm font-medium text-brand-charcoal/80">
+                            Student {students.length > 1 ? `#${index + 1}` : ""} Name
+                          </label>
+                          <input 
+                            type="text" 
+                            name={`Student ${index + 1} Name`} 
+                            className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all bg-brand-stone" 
+                            placeholder="Student's Full Name" 
+                            required 
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-sm font-medium text-brand-charcoal/80">Date of Birth</label>
+                          <input 
+                            type="date" 
+                            name={`Student ${index + 1} Date of Birth`} 
+                            className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all bg-brand-stone text-brand-charcoal/80" 
+                            required 
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-sm font-medium text-brand-charcoal/80">Entering Grade</label>
+                          <select 
+                            name={`Student ${index + 1} Entering Grade`} 
+                            defaultValue="" 
+                            className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all bg-brand-stone text-brand-charcoal/80" 
+                            required
+                          >
+                            <option value="" disabled>Select Grade</option>
+                            <option value="k">Kindergarten</option>
+                            <option value="1">1st Grade</option>
+                            <option value="2">2nd Grade</option>
+                            <option value="3">3rd Grade</option>
+                            <option value="4">4th Grade</option>
+                            <option value="5">5th Grade</option>
+                            <option value="6">6th Grade</option>
+                            <option value="7">7th Grade</option>
+                            <option value="8">8th Grade</option>
+                          </select>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  ))}
 
-                  <button type="button" className="text-[var(--color-brand-sage)] font-semibold text-sm hover:text-[#a05a41] flex items-center gap-1 bg-[var(--color-brand-sage)]/10 px-4 py-2 rounded-lg transition-colors">
+                  <button 
+                    type="button" 
+                    onClick={addStudent}
+                    className="text-[var(--color-brand-sage)] font-semibold text-sm hover:text-[#a05a41] flex items-center gap-1 bg-[var(--color-brand-sage)]/10 px-4 py-2 rounded-lg transition-colors"
+                  >
                     + Add Student
                   </button>
                 </div>

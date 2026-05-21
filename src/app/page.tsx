@@ -275,6 +275,7 @@ export default function Home() {
                     <BookOpen className="h-5 w-5 mr-2 text-[var(--color-brand-sage)]" />
                     Student Information
                   </h4>
+                  <P>We primarily serve middle school students, but we are actively exploring an expansion for grades K–4 based on community demand. Please add your student's information below to apply for middle school or secure a spot on our K–4 interest list!</P>
 
                   {/* Dynamic Student Blocks */}
                   {students.map((student, index) => (
@@ -320,11 +321,11 @@ export default function Home() {
                             required
                           >
                             <option value="" disabled>Select Grade</option>
-                            <option value="k">Kindergarten</option>
-                            <option value="1">1st Grade</option>
-                            <option value="2">2nd Grade</option>
-                            <option value="3">3rd Grade</option>
-                            <option value="4">4th Grade</option>
+                            <option value="k">Kindergarten (Interest List)</option>
+                            <option value="1">1st Grade (Interest List)</option>
+                            <option value="2">2nd Grade (Interest List)</option>
+                            <option value="3">3rd Grade (Interest List)</option>
+                            <option value="4">4th Grade (Interest List)</option>
                             <option value="5">5th Grade</option>
                             <option value="6">6th Grade</option>
                             <option value="7">7th Grade</option>

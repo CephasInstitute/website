@@ -18,12 +18,24 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  
+  // State to track dynamic student inputs (starts with one student row)
+  const [students, setStudents] = useState([{ id: Date.now() }]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  // Functions to handle adding and removing student fields
+  const addStudent = () => {
+    setStudents([...students, { id: Date.now() }]);
+  };
+
+  const removeStudent = (id: number) => {
+    setStudents(students.filter((student) => student.id !== id));
   };
 
   return (
@@ -124,7 +136,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h4 className="font-bold text-brand-charcoal text-lg">Location</h4>
-                      <p className="text-brand-charcoal/70 mt-1">(Harvest Field Church)< br />6431 Arc Way<br />Fort Myers, FL 33966</p>
+                      <p className="text-brand-charcoal/70 mt-1">(Harvest Field Church)<br />6431 Arc Way<br />Fort Myers, FL 33966</p>
                     </div>
                   </div>
 
@@ -182,7 +194,7 @@ export default function Home() {
               </div>
             </div>
 
-{/* Form Body */}
+            {/* Form Body */}
             {isSuccess ? (
               <div className="p-8 md:p-12 text-center space-y-4">
                 <div className="w-20 h-20 bg-[var(--color-brand-sage)] rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
@@ -257,7 +269,7 @@ export default function Home() {
                   </div>
                 </div>
 
-{/* Student Info */}
+                {/* Student Info */}
                 <div>
                   <h4 className="text-xl font-bold text-brand-charcoal mb-6 flex items-center border-b pb-2">
                     <BookOpen className="h-5 w-5 mr-2 text-[var(--color-brand-sage)]" />

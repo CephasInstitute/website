@@ -275,7 +275,7 @@ export default function Home() {
                     <BookOpen className="h-5 w-5 mr-2 text-[var(--color-brand-sage)]" />
                     Student Information
                   </h4>
-                  <p className="text-md text-brand-charcoal/80"> We primarily serve middle school students, but we are actively exploring an expansion for grades K–4 based on community demand. Please add your student's information below to apply for middle school or secure a spot on our K–4 interest list!</p>
+                  <p className="text-md text-brand-charcoal/80"> We primarily serve middle school students, but we are actively exploring an expansion for grades K–4 based on community demand. Please add your student's information below to submit an inquiry for middle school or join our K–4 interest list!</p>
 
                   {/* Dynamic Student Blocks */}
                   {students.map((student, index) => (

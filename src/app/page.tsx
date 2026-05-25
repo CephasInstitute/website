@@ -18,7 +18,7 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  
+
   // State to track dynamic student inputs (starts with one student row)
   const [students, setStudents] = useState([{ id: Date.now() }]);
 
@@ -92,7 +92,7 @@ export default function Home() {
             <h2 className="text-sm font-bold tracking-widest text-[var(--color-brand-sage)] uppercase mb-3">Our Approach</h2>
             <h3 className="text-3xl md:text-4xl font-bold text-brand-charcoal mb-6">Our Educational Model</h3>
             <p className="text-lg text-brand-charcoal/70 mb-8">
-              We blend the best of classical wisdom with modern, dynamic project-based learning in an intimate environment. 
+              We blend the best of classical wisdom with modern, dynamic project-based learning in an intimate environment.
               Our focus is on deep mastery of core subjects and meaningful real-world application.
             </p>
             <Link href="/model" className="inline-flex items-center gap-2 bg-brand-charcoal text-brand-stone px-8 py-3 rounded-full font-medium transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
@@ -109,7 +109,7 @@ export default function Home() {
             <h2 className="text-sm font-bold tracking-widest text-[var(--color-brand-sage)] uppercase mb-3">About Us</h2>
             <h3 className="text-3xl md:text-4xl font-bold text-brand-charcoal mb-6">Partnering with Families</h3>
             <p className="text-lg text-brand-charcoal/70 mb-8">
-              Founded by educators and community leaders who saw the need for a more intentional approach to learning. 
+              Founded by educators and community leaders who saw the need for a more intentional approach to learning.
               We are building a team dedicated to guiding your child's academic and spiritual journey.
             </p>
             <Link href="/about" className="inline-flex items-center gap-2 bg-brand-charcoal text-brand-stone px-8 py-3 rounded-full font-medium transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
@@ -172,96 +172,6 @@ export default function Home() {
                 ></iframe>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* TUITION & ENROLLMENT SECTION */}
-      <section id="tuition" className="py-24 bg-[var(--color-brand-stone)] border-t border-brand-charcoal/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-charcoal mb-6">Tuition & Enrollment</h2>
-            <p className="text-lg text-brand-charcoal/80 leading-relaxed">
-              At Cephas Institute, we are committed to providing thoughtful, academically rigorous, and relationship-driven education within a structured small-group learning environment. Tuition supports strong academic instruction, individualized support, enrichment opportunities, and the intentional rhythms that shape student life at Cephas.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
-            {/* Standard Enrollment Card */}
-            <div className="bg-white rounded-3xl p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-brand-charcoal/5 flex flex-col h-full transition-transform hover:-translate-y-1 duration-300">
-              <h3 className="text-2xl font-bold text-brand-charcoal mb-2">Standard Enrollment</h3>
-              <div className="text-[var(--color-brand-sage)] font-bold text-3xl mb-4">$8,050 <span className="text-lg text-brand-charcoal/50 font-normal">Annual Tuition</span></div>
-              <p className="text-brand-charcoal/70 mb-8 leading-relaxed flex-grow">
-                Designed for students and scholarship-funded homeschool families seeking strong academics, biblical discipleship, and individualized support within a structured learning environment.
-              </p>
-              
-              <div className="space-y-4">
-                <p className="font-bold text-brand-charcoal">Includes:</p>
-                <ul className="space-y-3">
-                  {[
-                    "Core academic instruction",
-                    "Small-group learning environment",
-                    "Literacy & composition instruction",
-                    "Mathematics, science, and social studies",
-                    "Bible study & discipleship",
-                    "Friday enrichment opportunities",
-                    "Academic support & mentorship",
-                    "Curriculum and instructional materials"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-[var(--color-brand-sage)] mr-3 shrink-0 mt-0.5" />
-                      <span className="text-brand-charcoal/80">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Individualized Support Enrollment Card */}
-            <div className="bg-[#e9f2eb] rounded-3xl p-8 md:p-10 shadow-sm border border-[var(--color-brand-sage)]/30 flex flex-col h-full transition-transform hover:-translate-y-1 duration-300 relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-[var(--color-brand-sage)] text-white text-xs font-bold px-4 py-1 rounded-bl-xl uppercase tracking-wider">Specialized</div>
-              <h3 className="text-2xl font-bold text-brand-charcoal mb-2">Individualized Support Enrollment</h3>
-              <div className="text-[var(--color-brand-sage)] font-bold text-3xl mb-4">$10,000 <span className="text-lg text-brand-charcoal/50 font-normal">Annual Tuition</span></div>
-              <p className="text-brand-charcoal/70 mb-8 leading-relaxed flex-grow">
-                Designed for students who may benefit from additional individualized support, accommodations, and intentional academic guidance within a structured and relationship-driven environment.
-              </p>
-              
-              <div className="bg-white/60 rounded-xl p-5 border border-[var(--color-brand-sage)]/20 mt-auto">
-                <p className="text-sm text-brand-charcoal/80 italic">
-                  <span className="font-bold not-italic">Note:</span> Enrollment and placement are determined through an application and family meeting process to ensure program fit and appropriate support.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Scholarship Callout Box */}
-          <div className="max-w-4xl mx-auto bg-gradient-to-br from-[#f8f5f0] to-[#f0eade] border-l-4 border-[#C6934A] rounded-2xl p-8 md:p-10 shadow-sm mb-16">
-            <h4 className="text-xl font-bold text-brand-charcoal mb-4 flex items-center">
-              <Lightbulb className="h-6 w-6 text-[#C6934A] mr-3" />
-              Scholarships Accepted
-            </h4>
-            <p className="text-brand-charcoal/80 mb-4">Cephas Institute currently accepts:</p>
-            <ul className="space-y-3 mb-6">
-              <li className="flex items-center">
-                <div className="h-2 w-2 rounded-full bg-[#C6934A] mr-3"></div>
-                <span className="text-brand-charcoal/90 font-medium">PEP Scholarships</span>
-              </li>
-              <li className="flex items-center">
-                <div className="h-2 w-2 rounded-full bg-[#C6934A] mr-3"></div>
-                <span className="text-brand-charcoal/90 font-medium">UA Scholarships through Step Up For Students</span>
-              </li>
-            </ul>
-            <p className="text-brand-charcoal/80 italic text-sm">
-              Families utilizing scholarship funding are encouraged to contact us regarding enrollment procedures and tuition guidance.
-            </p>
-          </div>
-
-          {/* Enrollment Note */}
-          <div className="max-w-3xl mx-auto text-center border-t border-brand-charcoal/10 pt-12">
-            <h4 className="text-lg font-bold text-brand-charcoal mb-4">Enrollment & Class Size</h4>
-            <p className="text-brand-charcoal/70 leading-relaxed text-sm md:text-base">
-              To preserve the quality, mentorship, and individualized nature of our program, enrollment is intentionally limited. We believe students learn best in environments where they are personally known, consistently supported, and meaningfully challenged both academically and spiritually.
-            </p>
           </div>
         </div>
       </section>
@@ -379,35 +289,35 @@ export default function Home() {
                           Remove Student
                         </button>
                       )}
-                      
+
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-2 md:col-span-2">
                           <label className="text-sm font-medium text-brand-charcoal/80">
                             Student {students.length > 1 ? `#${index + 1}` : ""} Name
                           </label>
-                          <input 
-                            type="text" 
-                            name={`Student ${index + 1} Name`} 
-                            className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all bg-brand-stone" 
-                            placeholder="Student's Full Name" 
-                            required 
+                          <input
+                            type="text"
+                            name={`Student ${index + 1} Name`}
+                            className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all bg-brand-stone"
+                            placeholder="Student's Full Name"
+                            required
                           />
                         </div>
                         <div className="space-y-2">
                           <label className="text-sm font-medium text-brand-charcoal/80">Date of Birth</label>
-                          <input 
-                            type="date" 
-                            name={`Student ${index + 1} Date of Birth`} 
-                            className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all bg-brand-stone text-brand-charcoal/80" 
-                            required 
+                          <input
+                            type="date"
+                            name={`Student ${index + 1} Date of Birth`}
+                            className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all bg-brand-stone text-brand-charcoal/80"
+                            required
                           />
                         </div>
                         <div className="space-y-2">
                           <label className="text-sm font-medium text-brand-charcoal/80">Entering Grade</label>
-                          <select 
-                            name={`Student ${index + 1} Entering Grade`} 
-                            defaultValue="" 
-                            className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all bg-brand-stone text-brand-charcoal/80" 
+                          <select
+                            name={`Student ${index + 1} Entering Grade`}
+                            defaultValue=""
+                            className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all bg-brand-stone text-brand-charcoal/80"
                             required
                           >
                             <option value="" disabled>Select Grade</option>
@@ -426,8 +336,8 @@ export default function Home() {
                     </div>
                   ))}
 
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     onClick={addStudent}
                     className="text-[var(--color-brand-sage)] font-semibold text-sm hover:text-[#a05a41] flex items-center gap-1 bg-[var(--color-brand-sage)]/10 px-4 py-2 rounded-lg transition-colors"
                   >

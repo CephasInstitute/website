@@ -10,7 +10,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">About Us</h1>
           <p className="text-xl md:text-2xl font-light text-[var(--color-brand-stone)]/90">
-            Shaping both the intellect and character of every student.
+            An education that forms wisdom, character, and purpose.
           </p>
         </div>
       </section>
@@ -20,7 +20,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto prose prose-lg prose-headings:font-bold prose-headings:text-brand-charcoal text-brand-charcoal/80">
           <h2 className="text-3xl font-bold mb-6 text-brand-charcoal">Our Story & Foundation</h2>
           <p className="mb-4">
-            Welcome to Cephas Institute. We believe that true education goes far beyond academic performance alone—it is about shaping both the intellect and character of every student.
+            Welcome to Cephas Institute. We believe that true education goes far beyond academic performance alone—it is an education that forms wisdom, character, and purpose.
           </p>
           <p className="mb-4">
             Founded in 2026 by Gabriella and John De Oliveira, Cephas Institute was born out of a long-standing, shared passion for education, intentional discipleship, and building a meaningful community. We recognized a growing need for an educational environment that does more than just pass along information.

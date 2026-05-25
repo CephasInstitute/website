@@ -24,6 +24,7 @@ export default function Navbar() {
               <Link href="/" className="text-brand-charcoal/70 hover:text-[var(--color-brand-sage)] font-medium transition-colors">Home</Link>
               <Link href="/model" className="text-brand-charcoal/70 hover:text-[var(--color-brand-sage)] font-medium transition-colors">Our Model</Link>
               <Link href="/about" className="text-brand-charcoal/70 hover:text-[var(--color-brand-sage)] font-medium transition-colors">About Us</Link>
+              <Link href="/tuition" className="text-brand-charcoal/70 hover:text-[var(--color-brand-sage)] font-medium transition-colors">Tuition</Link>
               <Link href="/#contact" className="text-brand-charcoal/70 hover:text-[var(--color-brand-sage)] font-medium transition-colors">Contact</Link>
               <Link
                 href="/#apply"
@@ -53,6 +54,7 @@ export default function Navbar() {
               <Link onClick={() => setIsMobileMenuOpen(false)} href="/" className="block w-full text-left px-3 py-3 text-base font-medium text-brand-charcoal/80 hover:text-[var(--color-brand-sage)] hover:bg-brand-stone/50 rounded-md">Home</Link>
               <Link onClick={() => setIsMobileMenuOpen(false)} href="/model" className="block w-full text-left px-3 py-3 text-base font-medium text-brand-charcoal/80 hover:text-[var(--color-brand-sage)] hover:bg-brand-stone/50 rounded-md">Our Model</Link>
               <Link onClick={() => setIsMobileMenuOpen(false)} href="/about" className="block w-full text-left px-3 py-3 text-base font-medium text-brand-charcoal/80 hover:text-[var(--color-brand-sage)] hover:bg-brand-stone/50 rounded-md">About Us</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/tuition" className="block w-full text-left px-3 py-3 text-base font-medium text-brand-charcoal/80 hover:text-[var(--color-brand-sage)] hover:bg-brand-stone/50 rounded-md">Tuition</Link>
               <Link onClick={() => setIsMobileMenuOpen(false)} href="/#contact" className="block w-full text-left px-3 py-3 text-base font-medium text-brand-charcoal/80 hover:text-[var(--color-brand-sage)] hover:bg-brand-stone/50 rounded-md">Contact</Link>
               <Link
                 onClick={() => setIsMobileMenuOpen(false)}

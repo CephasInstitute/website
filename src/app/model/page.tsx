@@ -10,7 +10,7 @@ export default function ModelPage() {
         <div className="max-w-4xl mx-auto relative z-10">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Our School Model & Academic Approach</h1>
           <p className="text-xl md:text-2xl font-light text-[var(--color-brand-stone)]/80">
-            A deep foundation in core disciplines designed to form the intellect and the heart.
+            A deep foundation in core disciplines designed to form wisdom, character, and purpose.
           </p>
         </div>
       </section>
@@ -258,7 +258,7 @@ export default function ModelPage() {
               { l: "E", t: "Excellence in Academics", d: "Maintaining rigor and absolute consistency in core disciplines." },
               { l: "P", t: "Purposeful Learning", d: "Connecting academic lessons to real-life meaning and personal calling." },
               { l: "H", t: "Holistic Development", d: "Educating the whole child—academically, socially, emotionally, and spiritually." },
-              { l: "A", t: "Applied Knowledge", d: "Ensuring regular engagement in projects and real-world application." },
+              { l: "A", t: "ADVOCACY", d: "Cultivating students who lead with compassion, serve with humility, and positively impact their communities." },
               { l: "S", t: "Stable Rhythms", d: "Providing the structure and consistent routines that promote confidence and a healthy balance." }
             ].map((value, idx) => (
               <div key={idx} className="flex gap-6 items-start p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
@@ -278,7 +278,7 @@ export default function ModelPage() {
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold mb-6">Take the Next Step</h2>
           <p className="text-xl mb-8 text-brand-stone/90 font-light">
-            Discover an academic approach that truly forms the intellect and the heart. We welcome families utilizing state scholarships.
+            Discover an education that forms wisdom, character, and purpose. We welcome families utilizing state scholarships.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link 

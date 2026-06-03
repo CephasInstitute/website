@@ -80,7 +80,7 @@ export default function Home() {
 
           {/* Hero Image */}
           <div className="mt-16 md:mt-24 relative max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-brand-charcoal/10 aspect-[16/9] md:aspect-[21/9] bg-brand-stone">
-            <Image src="/hero_learning.png" alt="Students engaged in learning" fill className="object-cover" priority />
+            <Image src="/gabriella_founder.jpg" alt="Gabriella De Oliveira" fill className="object-cover object-[50%_30%]" priority />
           </div>
         </div>
       </section>

@@ -52,15 +52,15 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <span className="inline-block py-1 px-3 rounded-full bg-brand-stone/80 border border-brand-charcoal/20 text-sm font-semibold text-[var(--color-brand-sage)] mb-6 shadow-sm">
-              Enrolling for Fall 2026
-            </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-brand-charcoal tracking-tight leading-tight mb-8">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-brand-charcoal tracking-tight leading-tight mb-6 mt-4">
               Foundations That <span className="text-[var(--color-brand-sage)]">Last.</span>
             </h1>
-            <p className="mt-4 text-xl md:text-2xl text-brand-charcoal/70 mb-10 leading-relaxed font-light">
-              A faith-centered, 5th-8th grade micro-school in Fort Myers, FL. <br className="hidden md:block" />
-              Equipping students with strong academics, character, and purpose.
+            <p className="text-xl md:text-2xl text-brand-charcoal/70 mb-6 leading-relaxed font-light">
+              A faith-based learning community partnering with families to provide rigorous academics, individualized support, and character formation for students in grades 5–8.
+            </p>
+            <p className="text-lg md:text-xl text-brand-charcoal/80 mb-10 italic font-medium">
+              Now Enrolling for 2026–2027 <br />
+              PEP & UA Scholarships Accepted
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <button
@@ -90,13 +90,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-sm font-bold tracking-widest text-[var(--color-brand-sage)] uppercase mb-3">Our Approach</h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-brand-charcoal mb-6">Our Educational Model</h3>
+            <h3 className="text-3xl md:text-4xl font-bold text-brand-charcoal mb-6">Foundations That Last</h3>
             <p className="text-lg text-brand-charcoal/70 mb-8">
-              We blend the best of classical wisdom with modern, dynamic project-based learning in an intimate environment.
-              Our focus is on deep mastery of core subjects and meaningful real-world application.
+              We believe education should do more than prepare students for the next test. Through strong academics, biblical truth, and meaningful mentorship, we help students develop the knowledge, wisdom, and character to live with purpose.
             </p>
             <Link href="/model" className="inline-flex items-center gap-2 bg-brand-charcoal text-brand-stone px-8 py-3 rounded-full font-medium transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
-              Explore Our Model <ArrowRight className="h-5 w-5" />
+              Discover Our Approach <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
         </div>
@@ -107,13 +106,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-sm font-bold tracking-widest text-[var(--color-brand-sage)] uppercase mb-3">About Us</h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-brand-charcoal mb-6">Partnering with Families</h3>
+            <h3 className="text-3xl md:text-4xl font-bold text-brand-charcoal mb-6">Partnering With Families</h3>
             <p className="text-lg text-brand-charcoal/70 mb-8">
-              Founded by educators and community leaders who saw the need for a more intentional approach to learning.
-              We are building a team dedicated to guiding your child's academic and spiritual journey.
+              Many families are looking for an educational environment where students are known, challenged, and supported. Cephas was created to provide structured academics, individualized attention, and character development within a close-knit learning community.
             </p>
             <Link href="/about" className="inline-flex items-center gap-2 bg-brand-charcoal text-brand-stone px-8 py-3 rounded-full font-medium transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
-              Meet the Team <ArrowRight className="h-5 w-5" />
+              Learn More About Cephas <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
         </div>

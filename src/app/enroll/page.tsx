@@ -116,6 +116,34 @@ export default function EnrollPage() {
       if (urlStudentId) {
         localStorage.setItem("enrollment_student_id", urlStudentId);
         setStudentId(urlStudentId);
+
+        const urlSessionId = params.get("session_id");
+        if (urlSessionId) {
+          setSaveStatus("saving");
+          try {
+            // Verify payment on the backend
+            const verifyRes = await fetch(`${backendUrl}/api/enroll/verify-payment`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                student_id: urlStudentId,
+                session_id: urlSessionId,
+              }),
+            });
+
+            if (verifyRes.ok) {
+              console.log("Payment successfully verified!");
+            } else {
+              console.error("Payment verification failed at backend");
+            }
+          } catch (e) {
+            console.error("Error calling payment verification endpoint", e);
+          } finally {
+            // Clean up the URL parameters so they don't persist on refresh
+            const cleanUrl = `${window.location.origin}${window.location.pathname}?student_id=${urlStudentId}`;
+            window.history.replaceState({}, document.title, cleanUrl);
+          }
+        }
         
         // Attempt to fetch from backend first
         try {
@@ -313,35 +341,32 @@ export default function EnrollPage() {
     setPaymentError(null);
 
     try {
-      // 1. Create Payment Intent on Rust backend
-      const res = await fetch(`${backendUrl}/api/enroll/payment-intent`, {
+      const successUrl = `${window.location.origin}/enroll?student_id=${studentId}`;
+      const cancelUrl = `${window.location.origin}/enroll?student_id=${studentId}`;
+
+      // 1. Create Stripe Checkout Session on Rust backend
+      const res = await fetch(`${backendUrl}/api/enroll/checkout-session`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           amount_cents: paymentAmount,
           email: formData.family_email || "test@cephas.com",
           student_id: studentId,
+          success_url: successUrl,
+          cancel_url: cancelUrl,
         }),
       });
 
-      if (!res.ok) throw new Error("Could not initialize Payment Intent.");
+      if (!res.ok) throw new Error("Could not initialize Stripe Checkout Session.");
       
-      const { client_secret, payment_intent_id } = await res.json();
-      console.log("Stripe Payment Intent Created:", payment_intent_id);
+      const { checkout_url, session_id } = await res.json();
+      console.log("Stripe Checkout Session Created:", session_id);
 
-      // 2. Confirm Payment (Simulated card verification)
-      await new Promise((resolve) => setTimeout(resolve, 2500));
-
-      const updated = { ...formData, stripe_payment_success: true };
-      setFormData(updated);
-      triggerAutoSave(updated);
-    } catch (err) {
+      // Redirect user to Stripe secure checkout page
+      window.location.href = checkout_url;
+    } catch (err: any) {
       console.error(err);
-      // Fallback mock check
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      const updated = { ...formData, stripe_payment_success: true };
-      setFormData(updated);
-      triggerAutoSave(updated);
+      setPaymentError(err.message || "Failed to initialize payment checkout. Please try again.");
     } finally {
       setPaymentLoading(false);
     }

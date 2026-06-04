@@ -146,7 +146,7 @@ export default function AdmissionsPage() {
               <p className="text-brand-charcoal/70 mb-8 leading-relaxed flex-grow">
                 Designed for students and scholarship-funded homeschool families seeking strong academics, biblical discipleship, and individualized support within a structured learning environment.
               </p>
-              
+
               <div className="space-y-4 mt-auto pt-6 border-t border-brand-charcoal/5">
                 <p className="font-bold text-brand-charcoal">Includes:</p>
                 <ul className="space-y-3">
@@ -177,7 +177,7 @@ export default function AdmissionsPage() {
               <p className="text-brand-charcoal/70 mb-8 leading-relaxed flex-grow">
                 Designed for students who may benefit from additional individualized support, accommodations, and intentional academic guidance within a structured and relationship-driven environment.
               </p>
-              
+
               <div className="bg-white/70 rounded-xl p-5 border border-[var(--color-brand-sage)]/20 mt-auto shadow-sm">
                 <p className="text-sm text-brand-charcoal/80 italic">
                   <span className="font-bold not-italic">Note:</span> Enrollment and placement are determined through an application and family meeting process to ensure program fit and appropriate support.
@@ -326,12 +326,12 @@ export default function AdmissionsPage() {
               <div key={idx} className="relative pl-8 md:pl-10">
                 {/* Timeline Dot */}
                 <div className="absolute -left-[11px] top-1.5 bg-white border-4 border-[var(--color-brand-sage)] rounded-full w-5 h-5 flex items-center justify-center shadow-sm"></div>
-                
+
                 <div className="bg-[var(--color-brand-stone)]/30 border border-brand-charcoal/5 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
                   <span className="text-[var(--color-brand-sage)] font-bold text-xs uppercase tracking-widest">{stepObj.step}</span>
                   <h4 className="text-xl font-bold text-brand-charcoal mt-1 mb-3">{stepObj.title}</h4>
                   <p className="text-brand-charcoal/70 text-sm leading-relaxed">{stepObj.desc}</p>
-                  
+
                   {stepObj.extra && (
                     <div className="mt-4 p-3 bg-white border border-brand-charcoal/5 rounded-xl text-xs font-semibold text-brand-charcoal/80 flex items-center gap-2">
                       <Sparkles className="h-4 w-4 text-[var(--color-brand-sage)] shrink-0" />
@@ -373,7 +373,7 @@ export default function AdmissionsPage() {
                       <ChevronDown className="h-5 w-5 text-brand-charcoal/40 shrink-0" />
                     )}
                   </button>
-                  
+
                   {isOpen && (
                     <div className="px-6 pb-6 border-t border-brand-charcoal/5 pt-4 bg-brand-stone/10">
                       <p className="text-brand-charcoal/80 text-sm md:text-base leading-relaxed whitespace-pre-line">
@@ -396,19 +396,20 @@ export default function AdmissionsPage() {
             We would love to learn more about your family and answer any questions you may have.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link 
-              href="/#apply" 
+            <Link
+              href="/#apply"
               className="bg-[var(--color-brand-sage)] hover:bg-[#5f6e5b] text-brand-stone px-8 py-4 rounded-full font-bold text-lg transition-all shadow-md hover:shadow-lg inline-flex items-center justify-center gap-2"
             >
               Submit an Interest Form <ArrowRight className="h-5 w-5" />
             </Link>
-            <Link 
-              href="https://enroll.cephasinstitute.com" 
+            {/*          LINK FOR REGISTRATION ONLINE
+
+<Link 
+              href="/enroll" 
               className="bg-brand-stone hover:bg-brand-stone/80 text-brand-charcoal px-8 py-4 rounded-full font-bold text-lg transition-all shadow-md hover:shadow-lg inline-flex items-center justify-center gap-2 border border-brand-charcoal/15"
             >
               Online Registration Portal <ArrowRight className="h-5 w-5" />
-            </Link>
-
+            </Link> */}
           </div>
 
         </div>

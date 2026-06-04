@@ -8,7 +8,7 @@ export default function ModelPage() {
       <section className="bg-brand-charcoal text-[var(--color-brand-stone)] py-20 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[var(--color-brand-sage)] to-transparent"></div>
         <div className="max-w-4xl mx-auto relative z-10">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Our School Model & Academic Approach</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Our Academic Approach</h1>
           <p className="text-xl md:text-2xl font-light text-[var(--color-brand-stone)]/80">
             A deep foundation in core disciplines designed to form wisdom, character, and purpose.
           </p>

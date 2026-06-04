@@ -52,8 +52,10 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-brand-charcoal tracking-tight leading-tight mb-6 mt-4">
-              Foundations That <span className="text-[var(--color-brand-sage)]">Last.</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-charcoal tracking-tight leading-tight mb-6 mt-4">
+              Structured Academics.<br className="hidden md:block" />
+              Meaningful Relationships.<br className="hidden md:block" />
+              Purposeful Learning.
             </h1>
             <p className="text-xl md:text-2xl text-brand-charcoal/70 mb-6 leading-relaxed font-light">
               A faith-based learning community partnering with families to provide rigorous academics, individualized support, and character formation for students in grades 5–8.

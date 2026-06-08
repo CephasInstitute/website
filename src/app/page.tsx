@@ -156,7 +156,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h4 className="font-bold text-brand-charcoal text-lg">Call Us</h4>
-                      <p className="text-brand-charcoal/70 mt-1">(555) 123-4567</p>
+                      <p className="text-brand-charcoal/70 mt-1">(239) 537 0617</p>
                     </div>
                   </div>
                 </div>

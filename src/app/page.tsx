@@ -1,26 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef } from "react";
 import {
   MapPin,
   Phone,
   Mail,
   ArrowRight,
-  CheckCircle2,
-  Users,
-  BookOpen,
-  Lightbulb
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-
-  // State to track dynamic student inputs (starts with one student row)
-  const [students, setStudents] = useState([{ id: Date.now() }]);
+  // Ref to target exactly where the Cognito Form should be injected
+  const formRef = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -29,14 +21,18 @@ export default function Home() {
     }
   };
 
-  // Functions to handle adding and removing student fields
-  const addStudent = () => {
-    setStudents([...students, { id: Date.now() }]);
-  };
-
-  const removeStudent = (id: number) => {
-    setStudents(students.filter((student) => student.id !== id));
-  };
+  useEffect(() => {
+    // Inject the script safely on the client side to avoid hydration errors
+    // The length check prevents double-injection during React Strict Mode
+    if (formRef.current && formRef.current.children.length === 0) {
+      const script = document.createElement("script");
+      script.src = "https://www.cognitoforms.com/f/seamless.js";
+      script.setAttribute("data-key", "boQK7ss7KkCLvkCAge4c0w");
+      script.setAttribute("data-form", "10");
+      script.async = true;
+      formRef.current.appendChild(script);
+    }
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -156,7 +152,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h4 className="font-bold text-brand-charcoal text-lg">Call Us</h4>
-                      <p className="text-brand-charcoal/70 mt-1">(239) 537 0617</p>
+                      <p className="text-brand-charcoal/70 mt-1">(555) 123-4567</p>
                     </div>
                   </div>
                 </div>
@@ -194,230 +190,10 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Form Body */}
-            {isSuccess ? (
-              <div className="p-8 md:p-12 text-center space-y-4">
-                <div className="w-20 h-20 bg-[var(--color-brand-sage)] rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
-                  <CheckCircle2 className="h-10 w-10 text-brand-stone" />
-                </div>
-                <h4 className="text-2xl font-bold text-brand-charcoal">Thank You!</h4>
-                <p className="text-brand-charcoal/70 text-lg max-w-md mx-auto">
-                  Your interest form has been submitted successfully. We will be in touch with you shortly regarding the next steps for enrollment.
-                </p>
-                <button
-                  onClick={() => {
-                    setIsSuccess(false);
-                    setStudents([{ id: Date.now() }]); // reset student inputs too
-                  }}
-                  className="mt-8 text-[var(--color-brand-sage)] font-semibold hover:underline"
-                >
-                  Submit another response
-                </button>
-              </div>
-            ) : (
-              <form className="p-8 md:p-12 space-y-10" onSubmit={async (e) => {
-                e.preventDefault();
-                setIsSubmitting(true);
-                setErrorMessage("");
-
-                const formData = new FormData(e.currentTarget as HTMLFormElement);
-                formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "");
-
-                try {
-                  const response = await fetch("https://api.web3forms.com/submit", {
-                    method: "POST",
-                    body: formData
-                  });
-
-                  const data = await response.json();
-                  if (data.success) {
-                    setIsSuccess(true);
-                    (e.target as HTMLFormElement).reset();
-                  } else {
-                    setErrorMessage("There was an issue submitting your form. Please try again.");
-                  }
-                } catch (error) {
-                  setErrorMessage("Network error occurred. Please try again later.");
-                } finally {
-                  setIsSubmitting(false);
-                }
-              }}>
-
-                {/* Parent Info */}
-                <div>
-                  <h4 className="text-xl font-bold text-brand-charcoal mb-6 flex items-center border-b pb-2">
-                    <Users className="h-5 w-5 mr-2 text-[var(--color-brand-sage)]" />
-                    Parent / Guardian Information
-                  </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-brand-charcoal/80">Full Name</label>
-                      <input type="text" name="Parent Name" className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all" placeholder="Jane Doe" required />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-brand-charcoal/80">Phone Number</label>
-                      <input type="tel" name="Phone Number" className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all" placeholder="(555) 000-0000" required />
-                    </div>
-                    <div className="space-y-2 md:col-span-2">
-                      <label className="text-sm font-medium text-brand-charcoal/80">Email Address</label>
-                      <input type="email" name="Email Address" className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all" placeholder="jane@example.com" required />
-                    </div>
-                    <div className="space-y-2 md:col-span-2">
-                      <label className="text-sm font-medium text-brand-charcoal/80">Home Address</label>
-                      <input type="text" name="Home Address" className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all" placeholder="123 Main St, Apt 4B, Fort Myers, FL 33916" required />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Student Info */}
-                <div>
-                  <h4 className="text-xl font-bold text-brand-charcoal mb-6 flex items-center border-b pb-2">
-                    <BookOpen className="h-5 w-5 mr-2 text-[var(--color-brand-sage)]" />
-                    Student Information
-                  </h4>
-                  <p className="text-md text-brand-charcoal/80"> We primarily serve middle school students, but we are actively exploring an expansion for grades K–4 based on community demand. Please add your student's information below to submit an inquiry for middle school or join our K–4 interest list!</p>
-
-                  {/* Dynamic Student Blocks */}
-                  {students.map((student, index) => (
-                    <div key={student.id} className="bg-brand-stone/50 p-6 rounded-2xl border border-brand-charcoal/10 mb-4 space-y-6 relative">
-                      {students.length > 1 && (
-                        <button
-                          type="button"
-                          onClick={() => removeStudent(student.id)}
-                          className="absolute top-4 right-6 text-xs text-red-600 hover:text-red-800 transition-colors font-medium"
-                        >
-                          Remove Student
-                        </button>
-                      )}
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="space-y-2 md:col-span-2">
-                          <label className="text-sm font-medium text-brand-charcoal/80">
-                            Student {students.length > 1 ? `#${index + 1}` : ""} Name
-                          </label>
-                          <input
-                            type="text"
-                            name={`Student ${index + 1} Name`}
-                            className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all bg-brand-stone"
-                            placeholder="Student's Full Name"
-                            required
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <label className="text-sm font-medium text-brand-charcoal/80">Date of Birth</label>
-                          <input
-                            type="date"
-                            name={`Student ${index + 1} Date of Birth`}
-                            className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all bg-brand-stone text-brand-charcoal/80"
-                            required
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <label className="text-sm font-medium text-brand-charcoal/80">Entering Grade</label>
-                          <select
-                            name={`Student ${index + 1} Entering Grade`}
-                            defaultValue=""
-                            className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all bg-brand-stone text-brand-charcoal/80"
-                            required
-                          >
-                            <option value="" disabled>Select Grade</option>
-                            <option value="k">Kindergarten (Interest List)</option>
-                            <option value="1">1st Grade (Interest List)</option>
-                            <option value="2">2nd Grade (Interest List)</option>
-                            <option value="3">3rd Grade (Interest List)</option>
-                            <option value="4">4th Grade (Interest List)</option>
-                            <option value="5">5th Grade</option>
-                            <option value="6">6th Grade</option>
-                            <option value="7">7th Grade</option>
-                            <option value="8">8th Grade</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-
-                  <button
-                    type="button"
-                    onClick={addStudent}
-                    className="text-[var(--color-brand-sage)] font-semibold text-sm hover:text-[#a05a41] flex items-center gap-1 bg-[var(--color-brand-sage)]/10 px-4 py-2 rounded-lg transition-colors"
-                  >
-                    + Add Student
-                  </button>
-                </div>
-
-                {/* Funding Options */}
-                <div>
-                  <h4 className="text-xl font-bold text-brand-charcoal mb-6 flex items-center border-b pb-2">
-                    <Lightbulb className="h-5 w-5 mr-2 text-[var(--color-brand-sage)]" />
-                    Funding Options
-                  </h4>
-                  <div className="space-y-4">
-
-                    <label className="flex items-start p-4 border border-brand-charcoal/20 rounded-xl cursor-pointer hover:border-[var(--color-brand-sage)] hover:bg-[var(--color-brand-sage)]/5 transition-all">
-                      <div className="flex items-center h-6">
-                        <input type="radio" name="funding" value="Step Up Scholarship (Current)" className="w-5 h-5 text-[var(--color-brand-sage)] border-gray-300 focus:ring-[var(--color-brand-sage)]" required />
-                      </div>
-                      <div className="ml-3">
-                        <span className="block text-sm font-bold text-brand-charcoal">I already have Step Up Scholarship</span>
-                        <span className="block text-sm text-brand-charcoal/60 mt-1">For the upcoming school year.</span>
-                      </div>
-                    </label>
-
-                    <label className="flex items-start p-4 border border-brand-charcoal/20 rounded-xl cursor-pointer hover:border-[var(--color-brand-sage)] hover:bg-[var(--color-brand-sage)]/5 transition-all">
-                      <div className="flex items-center h-6">
-                        <input type="radio" name="funding" value="Step Up Scholarship (Applying)" className="w-5 h-5 text-[var(--color-brand-sage)] border-gray-300 focus:ring-[var(--color-brand-sage)]" required />
-                      </div>
-                      <div className="ml-3">
-                        <span className="block text-sm font-bold text-brand-charcoal">I plan to apply for the Step Up Scholarship for 2027</span>
-                        <span className="block text-sm text-brand-charcoal/60 mt-1">I need more information or am currently in the process.</span>
-                      </div>
-                    </label>
-
-                    <label className="flex items-start p-4 border border-brand-charcoal/20 rounded-xl cursor-pointer hover:border-[var(--color-brand-sage)] hover:bg-[var(--color-brand-sage)]/5 transition-all">
-                      <div className="flex items-center h-6">
-                        <input type="radio" name="funding" value="Paying Out of Pocket" className="w-5 h-5 text-[var(--color-brand-sage)] border-gray-300 focus:ring-[var(--color-brand-sage)]" required />
-                      </div>
-                      <div className="ml-3">
-                        <span className="block text-sm font-bold text-brand-charcoal">I will be paying out of pocket</span>
-                        <span className="block text-sm text-brand-charcoal/60 mt-1">Self-funding for this first year.</span>
-                      </div>
-                    </label>
-
-                  </div>
-                </div>
-
-                {/* Comments */}
-                <div>
-                  <label className="text-sm font-medium text-brand-charcoal/80 block mb-2">Additional Comments or Questions</label>
-                  <textarea
-                    name="Additional Comments"
-                    rows={4}
-                    className="w-full px-4 py-3 rounded-xl border border-brand-charcoal/20 focus:ring-2 focus:ring-[var(--color-brand-sage)] focus:border-transparent outline-none transition-all resize-none"
-                    placeholder="Tell us a little bit about what you're looking for in a school..."
-                  ></textarea>
-                </div>
-
-                {/* Submit */}
-                <div className="pt-4">
-                  {errorMessage && (
-                    <div className="mb-4 p-3 bg-red-50 text-red-700 border border-red-200 rounded-lg text-sm">
-                      {errorMessage}
-                    </div>
-                  )}
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-[var(--color-brand-sage)] hover:bg-brand-sage/90 disabled:opacity-70 disabled:cursor-not-allowed text-brand-stone py-4 rounded-xl text-lg font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
-                  >
-                    {isSubmitting ? "Submitting..." : "Submit Interest Form"} {!isSubmitting && <ArrowRight className="h-5 w-5" />}
-                  </button>
-                  <p className="text-center text-xs text-brand-charcoal/60 mt-4">
-                    By submitting this form, you agree to be contacted by Cephas Institute regarding enrollment.
-                  </p>
-                </div>
-
-              </form>
-            )}
+            {/* Form Body - Cognito Form Injection Point */}
+            <div className="p-8 md:p-12 min-h-[500px]">
+              <div ref={formRef}></div>
+            </div>
           </div>
 
         </div>

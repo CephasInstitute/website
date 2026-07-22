@@ -49,3 +49,19 @@ body {
   color: var(--foreground);
   font-family: var(--font-body), sans-serif;
 }
+
+/* Print styles to focus only on the academic calendar */
+@media print {
+  nav, footer, button, .print-hide {
+    display: none !important;
+  }
+
+  .print-only-calendar-wrapper > section:not(.print-calendar-section) {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}

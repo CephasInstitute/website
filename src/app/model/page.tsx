@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen, Heart, Activity, Users, Star, Target, CheckCircle, Calculator, FlaskConical, Globe, BookHeart, Mic, Wrench, Award, Palette, Hand, CalendarDays, Leaf } from "lucide-react";
+import { ArrowRight, BookOpen, Heart, Activity, Users, Star, Target, Calculator, FlaskConical, Globe, BookHeart, Mic, Wrench, Award, Palette, Hand, CalendarDays, Leaf } from "lucide-react";
+import AcademicCalendar from "@/components/AcademicCalendar";
 
 export default function ModelPage() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen print-only-calendar-wrapper">
       {/* Hero Section */}
       <section className="bg-brand-charcoal text-[var(--color-brand-stone)] py-20 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[var(--color-brand-sage)] to-transparent"></div>
@@ -246,6 +247,9 @@ export default function ModelPage() {
           </div>
         </div>
       </section>
+
+      {/* Academic Calendar */}
+      <AcademicCalendar />
 
       {/* C.E.P.H.A.S. Core Values */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-brand-charcoal text-brand-stone">

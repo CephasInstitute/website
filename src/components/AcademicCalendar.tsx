@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Calendar, Info, Printer } from "lucide-react";
 
 interface CalendarEvent {
-  type: "closed" | "enrichment" | "boundary" | "planning";
+  type: "closed" | "enrichment" | "boundary" | "planning" | "at-home-friday";
   label: string;
 }
 
@@ -153,10 +153,6 @@ export default function AcademicCalendar() {
   const [semesterFilter, setSemesterFilter] = useState<0 | 1 | 2>(0); // 0 = All, 1 = Semester 1, 2 = Semester 2
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
-  const handlePrint = () => {
-    window.print();
-  };
-
   // Helper to format date key YYYY-MM-DD
   const getDateKey = (year: number, month: number, day: number) => {
     const mm = String(month + 1).padStart(2, "0");
@@ -240,7 +236,7 @@ export default function AcademicCalendar() {
   };
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white/60 backdrop-blur-md border-t border-brand-charcoal/5 print:bg-white print:p-0 print:border-none print-calendar-section">
+    <section id="calendar" className="py-16 px-4 sm:px-6 lg:px-8 bg-white/60 backdrop-blur-md border-t border-brand-charcoal/5 print:bg-white print:p-0 print:border-none print-calendar-section">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 print:mb-6">
@@ -290,13 +286,15 @@ export default function AcademicCalendar() {
             </div>
 
             {/* Print Button */}
-            <button
-              onClick={handlePrint}
-              className="p-2.5 bg-brand-stone hover:bg-brand-stone/80 text-brand-charcoal border border-brand-charcoal/10 rounded-full transition-all hover:scale-105 cursor-pointer"
-              title="Print Calendar"
+            <a
+              href="/academic-calendar-2026-2027.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 bg-brand-stone hover:bg-brand-stone/80 text-brand-charcoal border border-brand-charcoal/10 rounded-full transition-all hover:scale-105 cursor-pointer flex items-center justify-center"
+              title="Print / Save Calendar PDF"
             >
               <Printer className="h-5 w-5" />
-            </button>
+            </a>
           </div>
         </div>
 
@@ -362,18 +360,13 @@ export default function AcademicCalendar() {
 
                     // Standardize Fridays that are not colored to "at-home-friday"
                     if (isDayInMonth && isFriday && !event) {
-                      event = { type: "enrichment", label: "At-Home Day (No School)" }; // Styled like at-home-friday
+                      event = { type: "at-home-friday", label: "At-Home Day (No School)" };
                     }
 
                     // Apply active filtering classes
                     let isDimmed = false;
                     if (activeCategory) {
-                      if (activeCategory === "at-home-friday") {
-                        const match = isDayInMonth && isFriday && (!dateKey || !EVENTS[dateKey]);
-                        isDimmed = !match;
-                      } else {
-                        isDimmed = !event || event.type !== activeCategory;
-                      }
+                      isDimmed = !event || event.type !== activeCategory;
                     }
 
                     // Compute styling classes
@@ -383,7 +376,7 @@ export default function AcademicCalendar() {
                     }
 
                     if (event) {
-                      if (event.label === "At-Home Day (No School)") {
+                      if (event.type === "at-home-friday") {
                         cellStyle = "bg-[#f5ebd6] text-brand-charcoal/60 border border-dashed border-brand-charcoal/20 font-bold shadow-sm";
                       } else if (event.type === "closed") {
                         cellStyle = "bg-[var(--color-brand-sage)] text-white font-bold shadow-sm hover:bg-[#5f6e5b]";

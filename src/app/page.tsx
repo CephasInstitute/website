@@ -6,6 +6,8 @@ import {
   Phone,
   Mail,
   ArrowRight,
+  Calendar,
+  DollarSign,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -79,6 +81,44 @@ export default function Home() {
           {/* Hero Image */}
           <div className="mt-16 md:mt-24 relative max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-brand-charcoal/10 aspect-[16/9] md:aspect-[21/9] bg-brand-stone">
             <Image src="/gabriella_founder.jpg" alt="Gabriella De Oliveira" fill className="object-cover object-[50%_30%]" priority />
+          </div>
+
+          {/* Calendar CTA Banner */}
+          <div className="mt-12 max-w-4xl mx-auto p-6 rounded-3xl bg-white/50 backdrop-blur-sm border border-brand-charcoal/10 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 hover:shadow-md transition-all hover:scale-[1.01] duration-300">
+            <div className="flex items-center gap-4 text-left">
+              <div className="bg-[var(--color-brand-sage)] text-brand-stone p-3 rounded-2xl shrink-0">
+                <Calendar className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg text-brand-charcoal mb-0.5 uppercase tracking-wide">Looking for our academic schedule?</h3>
+                <p className="text-sm text-brand-charcoal/70">View or download the 2026-2027 Academic Calendar directly on our website.</p>
+              </div>
+            </div>
+            <Link
+              href="/model#calendar"
+              className="w-full md:w-auto px-6 py-3.5 bg-brand-charcoal text-brand-stone hover:bg-black text-xs font-bold rounded-full shadow-sm hover:shadow transition-all inline-flex items-center justify-center gap-2 whitespace-nowrap uppercase tracking-wider cursor-pointer"
+            >
+              View Academic Calendar <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          {/* Tuition CTA Banner */}
+          <div className="mt-4 max-w-4xl mx-auto p-6 rounded-3xl bg-white/50 backdrop-blur-sm border border-brand-charcoal/10 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 hover:shadow-md transition-all hover:scale-[1.01] duration-300">
+            <div className="flex items-center gap-4 text-left">
+              <div className="bg-[var(--color-brand-sage)] text-brand-stone p-3 rounded-2xl shrink-0">
+                <DollarSign className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg text-brand-charcoal mb-0.5 uppercase tracking-wide">Want to review tuition & fees?</h3>
+                <p className="text-sm text-brand-charcoal/70">Find detailed tuition tiers, flexible payment options, and scholarship guides.</p>
+              </div>
+            </div>
+            <Link
+              href="/admissions#tuition"
+              className="w-full md:w-auto px-6 py-3.5 bg-brand-charcoal text-brand-stone hover:bg-black text-xs font-bold rounded-full shadow-sm hover:shadow transition-all inline-flex items-center justify-center gap-2 whitespace-nowrap uppercase tracking-wider cursor-pointer"
+            >
+              View Tuition & Costs <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>

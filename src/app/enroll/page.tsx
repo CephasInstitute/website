@@ -10,7 +10,6 @@ import {
   CheckCircle2,
   AlertCircle,
   Users,
-  Compass,
   RefreshCw,
   ArrowLeft,
   ArrowRight,
@@ -95,7 +94,7 @@ export default function EnrollPage() {
   const determineStepFromData = (data: EnrollmentData): number => {
     if (!data.family_email || !data.family_phone || !data.family_address) return 1;
     if (!data.student_first_name || !data.student_last_name || !data.student_dob) return 2;
-    for (let p of data.pickups) {
+    for (const p of data.pickups) {
       if (!p.name || !p.phone || !p.relationship) return 3;
     }
     if (!data.allergies) return 4;
@@ -216,6 +215,7 @@ export default function EnrollPage() {
           setSaveStatus("error");
         }
       } catch (err) {
+        console.error("Auto-save error:", err);
         setSaveStatus("error");
       }
     }, 1500);
@@ -223,7 +223,7 @@ export default function EnrollPage() {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
-    let val: any = value;
+    let val: string | boolean = value;
     if (type === "checkbox") {
       val = (e.target as HTMLInputElement).checked;
     }
@@ -364,9 +364,10 @@ export default function EnrollPage() {
 
       // Redirect user to Stripe secure checkout page
       window.location.href = checkout_url;
-    } catch (err: any) {
-      console.error(err);
-      setPaymentError(err.message || "Failed to initialize payment checkout. Please try again.");
+    } catch (err) {
+      console.error("Stripe checkout initialization error:", err);
+      const errorMessage = err instanceof Error ? err.message : "Failed to initialize payment checkout. Please try again.";
+      setPaymentError(errorMessage);
     } finally {
       setPaymentLoading(false);
     }
@@ -407,7 +408,7 @@ export default function EnrollPage() {
         throw new Error("Backend registration submission failed.");
       }
     } catch (err) {
-      console.warn("Backend connection failed. Completing flow in mock demonstration mode.");
+      console.warn("Backend connection failed. Completing flow in mock demonstration mode. Details:", err);
       setIsCompleted(true);
       localStorage.removeItem("enrollment_student_id");
       localStorage.removeItem(`enrollment_draft_${studentId}`);
@@ -1008,7 +1009,7 @@ export default function EnrollPage() {
                     <CreditCard className="h-6 w-6 text-[var(--color-brand-sage)]" />
                     Seat Reservation Fee
                   </h2>
-                  <p className="text-xs text-brand-charcoal/60 mt-1">Reserve your student's place for the upcoming school year via Stripe.</p>
+                  <p className="text-xs text-brand-charcoal/60 mt-1">Reserve your student&apos;s place for the upcoming school year via Stripe.</p>
                 </div>
                 
                 <div className="border border-brand-charcoal/10 rounded-2xl p-6 bg-brand-stone/10 max-w-md mx-auto shadow-sm">
@@ -1018,8 +1019,14 @@ export default function EnrollPage() {
                   </div>
 
                   <p className="text-2xs text-brand-charcoal/50 leading-relaxed mb-6">
-                    Enrollment is limited. This reservation fee reserves your student's placement in class, helps cover administrative onboarding, and is non-refundable after 10 business days.
+                    Enrollment is limited. This reservation fee reserves your student&apos;s placement in class, helps cover administrative onboarding, and is non-refundable after 10 business days.
                   </p>
+
+                  {paymentError && (
+                    <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold rounded-xl mb-4 text-center">
+                      {paymentError}
+                    </div>
+                  )}
 
                   {formData.stripe_payment_success ? (
                     <div className="w-full bg-[var(--color-brand-sage)]/10 text-[var(--color-brand-sage)] py-3 rounded-xl text-center text-sm font-bold flex items-center justify-center gap-2">

@@ -30,6 +30,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${bebasNeue.variable} ${openSans.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col relative bg-brand-stone">
         <Navbar />

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen, Heart, Activity, Users, Star, Target, Calculator, FlaskConical, Globe, BookHeart, Mic, Wrench, Award, Palette, Hand, CalendarDays, Leaf } from "lucide-react";
+import { ArrowRight, BookOpen, Heart, Activity, Users, Star, Target, Calculator, FlaskConical, Globe, BookHeart, Mic, Wrench, Award, Palette, Hand, CalendarDays, Leaf, Check } from "lucide-react";
 import AcademicCalendar from "@/components/AcademicCalendar";
 
 export default function ModelPage() {
@@ -16,8 +16,272 @@ export default function ModelPage() {
         </div>
       </section>
 
+      {/* Choose Your Cephas Pathway Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[var(--color-brand-stone)] border-b border-brand-charcoal/5">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-sm font-bold tracking-widest text-[var(--color-brand-sage)] uppercase mb-3">Pathways</h2>
+            <h3 className="text-3xl md:text-4xl font-extrabold text-brand-charcoal mb-6">Choose Your Cephas Pathway</h3>
+            <p className="text-lg text-brand-charcoal/80 leading-relaxed font-medium">
+              Every Cephas pathway is Christ-centered, academically rigorous, and personalized. The difference is how we partner with your family.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
+            {/* Cephas Complete (Green) */}
+            <div className="bg-white rounded-3xl shadow-md hover:shadow-lg border-t-8 border-[var(--color-brand-sage)] border-x border-b border-brand-charcoal/5 overflow-hidden flex flex-col h-full transition-all duration-300">
+              <div className="p-8 flex-grow">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="w-4 h-4 rounded-full bg-[var(--color-brand-sage)]" />
+                  <h4 className="text-2xl font-extrabold text-brand-charcoal">Cephas Complete</h4>
+                </div>
+                <p className="text-sm text-brand-charcoal/70 font-semibold mb-6">Our comprehensive academic partnership.</p>
+                
+                <div className="mb-6">
+                  <p className="text-xs font-bold uppercase tracking-wider text-brand-charcoal/60 mb-3">Best for families who...</p>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2.5 text-sm text-brand-charcoal/80">
+                      <span className="text-[var(--color-brand-sage)] text-base font-bold select-none">•</span>
+                      <span>Want a complete academic program</span>
+                    </li>
+                    <li className="flex items-start gap-2.5 text-sm text-brand-charcoal/80">
+                      <span className="text-[var(--color-brand-sage)] text-base font-bold select-none">•</span>
+                      <span>Desire four full days of instruction</span>
+                    </li>
+                    <li className="flex items-start gap-2.5 text-sm text-brand-charcoal/80">
+                      <span className="text-[var(--color-brand-sage)] text-base font-bold select-none">•</span>
+                      <span>Prefer the greatest amount of teacher-led learning</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="border-t border-brand-charcoal/10 pt-6 mb-6">
+                  <p className="text-xs font-bold uppercase tracking-wider text-brand-charcoal/60 mb-3">Includes</p>
+                  <ul className="space-y-2.5">
+                    {[
+                      "Four full days (Mon–Thurs)",
+                      "Bible",
+                      "Literacy",
+                      "Math",
+                      "Science",
+                      "Social Studies",
+                      "Personalized instruction",
+                      "Teacher guidance & assessment",
+                      "Optional enrichment Fridays"
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-center gap-2 text-sm text-brand-charcoal/85">
+                        <Check className="h-4 w-4 text-[var(--color-brand-sage)] shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="p-8 bg-brand-stone/20 border-t border-brand-charcoal/5">
+                <p className="text-xs font-bold uppercase tracking-wider text-brand-charcoal/60 mb-2">Ideal for</p>
+                <p className="text-sm text-brand-charcoal/85 leading-relaxed italic">
+                  Families seeking the closest alternative to a full-time Christian microschool while remaining homeschool students.
+                </p>
+              </div>
+            </div>
+
+            {/* Cephas Core (Blue) */}
+            <div className="bg-white rounded-3xl shadow-md hover:shadow-lg border-t-8 border-[#2b4c7e] border-x border-b border-brand-charcoal/5 overflow-hidden flex flex-col h-full transition-all duration-300">
+              <div className="p-8 flex-grow">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="w-4 h-4 rounded-full bg-[#2b4c7e]" />
+                  <h4 className="text-2xl font-extrabold text-brand-charcoal">Cephas Core</h4>
+                </div>
+                <p className="text-sm text-brand-charcoal/70 font-semibold mb-6">Four mornings focused on building strong academic foundations.</p>
+                
+                <div className="mb-6">
+                  <p className="text-xs font-bold uppercase tracking-wider text-brand-charcoal/60 mb-3">Best for families who...</p>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2.5 text-sm text-brand-charcoal/80">
+                      <span className="text-[#2b4c7e] text-base font-bold select-none">•</span>
+                      <span>Want support in literacy and math</span>
+                    </li>
+                    <li className="flex items-start gap-2.5 text-sm text-brand-charcoal/80">
+                      <span className="text-[#2b4c7e] text-base font-bold select-none">•</span>
+                      <span>Enjoy teaching science and history at home</span>
+                    </li>
+                    <li className="flex items-start gap-2.5 text-sm text-brand-charcoal/80">
+                      <span className="text-[#2b4c7e] text-base font-bold select-none">•</span>
+                      <span>Want structure without a full-day commitment</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="border-t border-brand-charcoal/10 pt-6 mb-6">
+                  <p className="text-xs font-bold uppercase tracking-wider text-brand-charcoal/60 mb-3">Includes</p>
+                  <ul className="space-y-2.5">
+                    {[
+                      "Four mornings (Mon–Thurs)",
+                      "Bible",
+                      "Literacy",
+                      "Math",
+                      "Personalized instruction",
+                      "Progress monitoring"
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-center gap-2 text-sm text-brand-charcoal/85">
+                        <Check className="h-4 w-4 text-[#2b4c7e] shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="p-8 bg-[#eef2f7] border-t border-brand-charcoal/5">
+                <p className="text-xs font-bold uppercase tracking-wider text-brand-charcoal/60 mb-2">Parent provides</p>
+                <ul className="space-y-1.5">
+                  {["Science", "Social Studies", "Afternoon learning"].map((item, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm text-brand-charcoal/85">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#2b4c7e] shrink-0 animate-pulse" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Cephas Flex (Orange) */}
+            <div className="bg-white rounded-3xl shadow-md hover:shadow-lg border-t-8 border-[#c27a5d] border-x border-b border-brand-charcoal/5 overflow-hidden flex flex-col h-full transition-all duration-300">
+              <div className="p-8 flex-grow">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="w-4 h-4 rounded-full bg-[#c27a5d]" />
+                  <h4 className="text-2xl font-extrabold text-brand-charcoal">Cephas Flex</h4>
+                </div>
+                <p className="text-sm text-brand-charcoal/70 font-semibold mb-6">A teacher-guided hybrid homeschool model.</p>
+                
+                <div className="mb-6">
+                  <p className="text-xs font-bold uppercase tracking-wider text-brand-charcoal/60 mb-3">Best for families who...</p>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2.5 text-sm text-brand-charcoal/80">
+                      <span className="text-[#c27a5d] text-base font-bold select-none">•</span>
+                      <span>Want a flexible schedule while remaining on track</span>
+                    </li>
+                    <li className="flex items-start gap-2.5 text-sm text-brand-charcoal/80">
+                      <span className="text-[#c27a5d] text-base font-bold select-none">•</span>
+                      <span>Thrive with a hybrid learning environment</span>
+                    </li>
+                    <li className="flex items-start gap-2.5 text-sm text-brand-charcoal/80">
+                      <span className="text-[#c27a5d] text-base font-bold select-none">•</span>
+                      <span>Want meaningful connection with teacher guidance</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="border-t border-brand-charcoal/10 pt-6 mb-6">
+                  <p className="text-xs font-bold uppercase tracking-wider text-brand-charcoal/60 mb-3">Includes</p>
+                  <ul className="space-y-2.5">
+                    {[
+                      "Two full days (Tues & Wed)",
+                      "Bible, Literacy, and Math instruction",
+                      "Weekly teacher-prepared lesson plans",
+                      "Guided at-home learning",
+                      "Academic pacing & assignment planning",
+                      "Progress monitoring & personalized support",
+                      "Teacher oversight"
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-center gap-2 text-sm text-brand-charcoal/85">
+                        <Check className="h-4 w-4 text-[#c27a5d] shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="p-8 bg-[#fdf5f2] border-t border-brand-charcoal/5">
+                <p className="text-xs font-bold uppercase tracking-wider text-brand-charcoal/60 mb-2">Parents provide</p>
+                <ul className="space-y-1.5">
+                  {["Instruction on home learning days using Cephas plans", "At-home learning on Mon, Thurs"].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-brand-charcoal/85">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#c27a5d] shrink-0 mt-1.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Visual Comparison Table */}
+          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-md border border-brand-charcoal/5">
+            <h4 className="text-2xl font-extrabold text-brand-charcoal mb-8 text-center tracking-tight">Visual Comparison</h4>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse text-left text-sm">
+                <thead>
+                  <tr className="border-b border-brand-charcoal/10 text-brand-charcoal/60 uppercase font-bold text-xs tracking-wider">
+                    <th className="py-4 px-6">Feature / Subject</th>
+                    <th className="py-4 px-6 text-center">Complete</th>
+                    <th className="py-4 px-6 text-center">Core</th>
+                    <th className="py-4 px-6 text-center">Flex</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-brand-charcoal/5 text-brand-charcoal font-semibold">
+                  <tr>
+                    <td className="py-4 px-6 font-bold text-brand-charcoal">Bible Study</td>
+                    <td className="py-4 px-6 text-center"><Check className="h-5 w-5 text-[var(--color-brand-sage)] mx-auto font-bold" /></td>
+                    <td className="py-4 px-6 text-center"><Check className="h-5 w-5 text-[#2b4c7e] mx-auto font-bold" /></td>
+                    <td className="py-4 px-6 text-center"><Check className="h-5 w-5 text-[#c27a5d] mx-auto font-bold" /></td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 px-6 font-bold text-brand-charcoal">Literacy & Composition</td>
+                    <td className="py-4 px-6 text-center"><Check className="h-5 w-5 text-[var(--color-brand-sage)] mx-auto font-bold" /></td>
+                    <td className="py-4 px-6 text-center"><Check className="h-5 w-5 text-[#2b4c7e] mx-auto font-bold" /></td>
+                    <td className="py-4 px-6 text-center"><Check className="h-5 w-5 text-[#c27a5d] mx-auto font-bold" /></td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 px-6 font-bold text-brand-charcoal">Mathematics</td>
+                    <td className="py-4 px-6 text-center"><Check className="h-5 w-5 text-[var(--color-brand-sage)] mx-auto font-bold" /></td>
+                    <td className="py-4 px-6 text-center"><Check className="h-5 w-5 text-[#2b4c7e] mx-auto font-bold" /></td>
+                    <td className="py-4 px-6 text-center"><Check className="h-5 w-5 text-[#c27a5d] mx-auto font-bold" /></td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 px-6 font-bold text-brand-charcoal">Science</td>
+                    <td className="py-4 px-6 text-center"><Check className="h-5 w-5 text-[var(--color-brand-sage)] mx-auto font-bold" /></td>
+                    <td className="py-4 px-6 text-center"><span className="inline-block bg-[#eef2f7] text-[#2b4c7e] text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider">Parent-Led</span></td>
+                    <td className="py-4 px-6 text-center"><Check className="h-5 w-5 text-[#c27a5d] mx-auto font-bold" /></td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 px-6 font-bold text-brand-charcoal">Social Studies</td>
+                    <td className="py-4 px-6 text-center"><Check className="h-5 w-5 text-[var(--color-brand-sage)] mx-auto font-bold" /></td>
+                    <td className="py-4 px-6 text-center"><span className="inline-block bg-[#eef2f7] text-[#2b4c7e] text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider">Parent-Led</span></td>
+                    <td className="py-4 px-6 text-center"><Check className="h-5 w-5 text-[#c27a5d] mx-auto font-bold" /></td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 px-6 font-bold text-brand-charcoal">Campus Schedule</td>
+                    <td className="py-4 px-6 text-center text-xs font-extrabold text-[var(--color-brand-sage)] uppercase tracking-wide">4 Full Days (Mon–Thurs)</td>
+                    <td className="py-4 px-6 text-center text-xs font-extrabold text-[#2b4c7e] uppercase tracking-wide">Morning Only (Mon–Thurs)</td>
+                    <td className="py-4 px-6 text-center text-xs font-extrabold text-[#c27a5d] uppercase tracking-wide">2 Full Days (Tues & Wed)</td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 px-6 font-bold text-brand-charcoal">Home Learning Support</td>
+                    <td className="py-4 px-6 text-center text-brand-charcoal/40 font-bold">—</td>
+                    <td className="py-4 px-6 text-center text-brand-charcoal/40 font-bold">—</td>
+                    <td className="py-4 px-6 text-center"><Check className="h-5 w-5 text-[#c27a5d] mx-auto font-bold" /></td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 px-6 font-bold text-brand-charcoal">Personalized Instruction</td>
+                    <td className="py-4 px-6 text-center"><Check className="h-5 w-5 text-[var(--color-brand-sage)] mx-auto font-bold" /></td>
+                    <td className="py-4 px-6 text-center"><Check className="h-5 w-5 text-[#2b4c7e] mx-auto font-bold" /></td>
+                    <td className="py-4 px-6 text-center"><Check className="h-5 w-5 text-[#c27a5d] mx-auto font-bold" /></td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 px-6 font-bold text-brand-charcoal">Friday Enrichment</td>
+                    <td className="py-4 px-6 text-center"><span className="inline-block bg-[#e9f2eb] text-[var(--color-brand-sage)] text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider">Included</span></td>
+                    <td className="py-4 px-6 text-center text-brand-charcoal/40 font-bold">—</td>
+                    <td className="py-4 px-6 text-center text-brand-charcoal/40 font-bold">—</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* The Core Academic Program */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[var(--color-brand-stone)]">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white border-b border-brand-charcoal/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-brand-charcoal mb-6">The Core Academic Program</h2>
@@ -120,8 +384,8 @@ export default function ModelPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[var(--color-brand-stone)]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-brand-charcoal mb-4 text-center tracking-tight">THE CEPHAS WEEKLY RHYTHM</h2>
-          <p className="text-brand-charcoal/80 text-center mb-12 text-lg max-w-3xl mx-auto">
-            Our structured weekly rhythm provides students with strong academics, meaningful relationships, and opportunities to apply learning, build confidence, and grow in wisdom.
+          <p className="text-brand-charcoal/80 text-center mb-12 text-lg max-w-3xl mx-auto font-medium">
+            Our campus operates on a structured Monday&ndash;Thursday schedule with optional Friday enrichment. While each pathway utilizes this schedule in different ways (Full Days, Mornings, or Select Days), our weekly rhythm is built around these core structured days:
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">

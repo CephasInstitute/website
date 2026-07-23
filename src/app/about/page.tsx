@@ -124,7 +124,7 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-bold text-brand-charcoal">John De Oliveira</h3>
                 <p className="text-[var(--color-brand-sage)] font-semibold mb-4 uppercase tracking-wide text-sm">Founder & Operational Manager</p>
                 <p className="text-brand-charcoal/80 mb-4">
-                  John oversees the business operations, safety structures, and organizational systems at Cephas Institute, ensuring the school's daily rhythms run with clarity and excellence. He co-founded the school in 2026 to help build an intentional, distraction-free environment for holistic student growth.
+                  John oversees the business operations, safety structures, and organizational systems at Cephas Institute, ensuring the school&apos;s daily rhythms run with clarity and excellence. He co-founded the school in 2026 to help build an intentional, distraction-free environment for holistic student growth.
                 </p>
                 <h4 className="font-bold text-brand-charcoal mt-6 mb-2">Experience & Credentials:</h4>
                 <ul className="space-y-3 text-brand-charcoal/80 text-left md:text-right">
@@ -132,7 +132,7 @@ export default function AboutPage() {
                   <li><strong className="text-brand-charcoal">Software Development & Client Relations:</strong> Worked as an independent full-stack developer and Account Manager, balancing technical execution with client success.</li>
                   <li><strong className="text-brand-charcoal">Startup & Tech Infrastructure:</strong> Provided core Technical Support at Prisma Box, a fast-paced software house and tech startup.</li>
                   <li><strong className="text-brand-charcoal">Systems & Procedures Expert:</strong> Possesses a deep knowledge of operational workflows, data systems, and optimization strategies.</li>
-                  <li><strong className="text-brand-charcoal">Community & Ministry:</strong> Serves actively alongside his wife, Gabriella, in their church's middle school ministry.</li>
+                  <li><strong className="text-brand-charcoal">Community & Ministry:</strong> Serves actively alongside his wife, Gabriella, in their church&apos;s middle school ministry.</li>
                 </ul>
               </div>
             </div>
@@ -145,7 +145,7 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold mb-6">Join Our Community</h2>
           <p className="text-xl mb-8 text-brand-stone/80 font-light">
-            Are you looking for a faith-centered, structured alternative for your child's education? We would love to connect with you.
+            Are you looking for a faith-centered, structured alternative for your child&apos;s education? We would love to connect with you.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link 

@@ -7,11 +7,8 @@ import {
   ArrowRight,
   ChevronDown,
   ChevronUp,
-  FileText,
-  ClipboardList,
   Compass,
   DollarSign,
-  HelpCircle,
   Clock,
   Sparkles
 } from "lucide-react";
@@ -138,50 +135,114 @@ export default function AdmissionsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
-            {/* Standard Enrollment Card */}
-            <div className="bg-white rounded-3xl p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-brand-charcoal/5 flex flex-col h-full transition-transform hover:-translate-y-1 duration-300">
-              <h3 className="text-2xl font-bold text-brand-charcoal mb-2">Standard Enrollment</h3>
-              <div className="text-[var(--color-brand-sage)] font-bold text-3xl mb-4">$8,050 <span className="text-lg text-brand-charcoal/50 font-normal">Annual Tuition</span></div>
-              <p className="text-brand-charcoal/70 mb-8 leading-relaxed flex-grow">
-                Designed for students and scholarship-funded homeschool families seeking strong academics, biblical discipleship, and individualized support within a structured learning environment.
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
+            {/* Cephas Complete Card */}
+            <div className="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-8 border-[var(--color-brand-sage)] border-x border-b border-brand-charcoal/5 flex flex-col h-full transition-transform hover:-translate-y-1 duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <span className="w-3.5 h-3.5 rounded-full bg-[var(--color-brand-sage)]" />
+                <h3 className="text-2xl font-bold text-brand-charcoal">Cephas Complete</h3>
+              </div>
+              <div className="text-[var(--color-brand-sage)] font-extrabold text-3xl mb-4">$8,050 <span className="text-lg text-brand-charcoal/50 font-normal font-sans">Annual Tuition</span></div>
+              <p className="text-brand-charcoal/70 text-sm mb-6 leading-relaxed">
+                Our comprehensive academic partnership. Designed for students seeking the closest alternative to a full-time Christian microschool while remaining homeschool students.
               </p>
 
               <div className="space-y-4 mt-auto pt-6 border-t border-brand-charcoal/5">
-                <p className="font-bold text-brand-charcoal">Includes:</p>
-                <ul className="space-y-3">
-                  {[
-                    "Core academic instruction",
-                    "Small-group learning environment",
-                    "Literacy & composition instruction",
-                    "Mathematics, science, and social studies",
-                    "Bible study & discipleship",
-                    "Friday enrichment opportunities",
-                    "Academic support & mentorship",
-                    "Curriculum and instructional materials"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-[var(--color-brand-sage)] mr-3 shrink-0 mt-0.5" />
-                      <span className="text-brand-charcoal/80 text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-brand-charcoal/60 mb-2">Includes:</p>
+                  <ul className="space-y-2.5">
+                    {[
+                      "Four full days (Mon–Thurs)",
+                      "Bible, Literacy, and Math instruction",
+                      "Science & Social Studies instruction",
+                      "Personalized instruction & assessment",
+                      "Optional enrichment Fridays",
+                      "Academic support & mentorship",
+                      "Curriculum and instructional materials"
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start">
+                        <CheckCircle2 className="h-5 w-5 text-[var(--color-brand-sage)] mr-2.5 shrink-0 mt-0.5" />
+                        <span className="text-brand-charcoal/80 text-sm font-medium">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
 
-            {/* Individualized Support Enrollment Card */}
-            <div className="bg-[#e9f2eb] rounded-3xl p-8 md:p-10 shadow-sm border-2 border-[var(--color-brand-sage)]/20 flex flex-col h-full transition-transform hover:-translate-y-1 duration-300 relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-[var(--color-brand-sage)] text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl uppercase tracking-wider shadow-sm">Specialized Tier</div>
-              <h3 className="text-2xl font-bold text-brand-charcoal mb-2 pr-20">Individualized Support Enrollment</h3>
-              <div className="text-[var(--color-brand-sage)] font-bold text-3xl mb-4">$10,000 <span className="text-lg text-brand-charcoal/50 font-normal">Annual Tuition</span></div>
-              <p className="text-brand-charcoal/70 mb-8 leading-relaxed flex-grow">
-                Designed for students who may benefit from additional individualized support, accommodations, and intentional academic guidance within a structured and relationship-driven environment.
+            {/* Cephas Core Card */}
+            <div className="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-8 border-[#2b4c7e] border-x border-b border-brand-charcoal/5 flex flex-col h-full transition-transform hover:-translate-y-1 duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <span className="w-3.5 h-3.5 rounded-full bg-[#2b4c7e]" />
+                <h3 className="text-2xl font-bold text-brand-charcoal">Cephas Core</h3>
+              </div>
+              <div className="text-[#2b4c7e] font-extrabold text-3xl mb-4">$5,000 <span className="text-lg text-brand-charcoal/50 font-normal font-sans">Annual Tuition</span></div>
+              <p className="text-brand-charcoal/70 text-sm mb-6 leading-relaxed">
+                Four mornings focused on building strong academic foundations. Ideal for families wanting structure and math/literacy support without a full-day commitment.
               </p>
 
-              <div className="bg-white/70 rounded-xl p-5 border border-[var(--color-brand-sage)]/20 mt-auto shadow-sm">
-                <p className="text-sm text-brand-charcoal/80 italic">
-                  <span className="font-bold not-italic">Note:</span> Enrollment and placement are determined through an application and family meeting process to ensure program fit and appropriate support.
-                </p>
+              <div className="space-y-4 mt-auto pt-6 border-t border-brand-charcoal/5">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-brand-charcoal/60 mb-2">Includes:</p>
+                  <ul className="space-y-2.5">
+                    {[
+                      "Four mornings (Mon–Thurs)",
+                      "Bible, Literacy, and Math instruction",
+                      "Personalized instruction & guidance",
+                      "Progress monitoring & tracking",
+                      "Curriculum and core academic materials"
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start">
+                        <CheckCircle2 className="h-5 w-5 text-[#2b4c7e] mr-2.5 shrink-0 mt-0.5" />
+                        <span className="text-brand-charcoal/80 text-sm font-medium">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div className="mt-4 pt-4 border-t border-brand-charcoal/5 bg-[#eef2f7]/50 rounded-xl p-3">
+                  <p className="text-xs font-bold uppercase tracking-wider text-brand-charcoal/60 mb-1.5">Parent Provides:</p>
+                  <p className="text-xs text-brand-charcoal/75 font-semibold">Science, Social Studies, and Afternoon learning</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Cephas Flex Card */}
+            <div className="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-t-8 border-[#c27a5d] border-x border-b border-brand-charcoal/5 flex flex-col h-full transition-transform hover:-translate-y-1 duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <span className="w-3.5 h-3.5 rounded-full bg-[#c27a5d]" />
+                <h3 className="text-2xl font-bold text-brand-charcoal">Cephas Flex</h3>
+              </div>
+              <div className="text-[#c27a5d] font-extrabold text-3xl mb-4">$5,000 <span className="text-lg text-brand-charcoal/50 font-normal font-sans">Annual Tuition</span></div>
+              <p className="text-brand-charcoal/70 text-sm mb-6 leading-relaxed">
+                A teacher-guided hybrid homeschool model. Perfect for families who want flexibility, guided at-home learning, and structured on-campus days.
+              </p>
+
+              <div className="space-y-4 mt-auto pt-6 border-t border-brand-charcoal/5">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-brand-charcoal/60 mb-2">Includes:</p>
+                  <ul className="space-y-2.5">
+                    {[
+                      "Two full days on-campus (Tues & Wed)",
+                      "Bible, Literacy, and Math instruction",
+                      "Weekly teacher-prepared lesson plans",
+                      "Guided at-home learning & pacing support",
+                      "Assignment planning & oversight",
+                      "Progress monitoring & personalized support",
+                      "Teacher oversight"
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start">
+                        <CheckCircle2 className="h-5 w-5 text-[#c27a5d] mr-2.5 shrink-0 mt-0.5" />
+                        <span className="text-brand-charcoal/80 text-sm font-medium">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-4 pt-4 border-t border-brand-charcoal/5 bg-[#fdf5f2] rounded-xl p-3">
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#8c462b] mb-1.5">Parents Provide:</p>
+                  <p className="text-xs text-[#8c462b]/95 font-semibold">Instruction on home learning days using Cephas plans</p>
+                </div>
               </div>
             </div>
           </div>
@@ -241,7 +302,7 @@ export default function AdmissionsPage() {
                 <h4 className="text-2xl font-bold text-brand-charcoal mb-2">Enrollment Fee</h4>
                 <div className="text-3xl font-extrabold text-[var(--color-brand-sage)] mb-4">$200</div>
                 <p className="text-brand-charcoal/70 text-sm leading-relaxed">
-                  Upon acceptance, families complete enrollment and submit the enrollment fee to reserve their student's place for the upcoming school year. Because enrollment is intentionally limited, this fee is non-refundable.
+                  Upon acceptance, families complete enrollment and submit the enrollment fee to reserve their student&apos;s place for the upcoming school year. Because enrollment is intentionally limited, this fee is non-refundable.
                 </p>
               </div>
             </div>

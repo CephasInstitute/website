@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   CheckCircle2,
   Lightbulb,
@@ -13,6 +13,7 @@ import {
   Sparkles
 } from "lucide-react";
 import Link from "next/link";
+import PromoPopup from "@/components/PromoPopup";
 
 interface FAQItem {
   question: string;
@@ -22,6 +23,13 @@ interface FAQItem {
 export default function AdmissionsPage() {
   // State for interactive FAQ accordion
   const [openFAQIndex, setOpenFAQIndex] = useState<number | null>(null);
+  const [isPromoActive, setIsPromoActive] = useState(false);
+
+  useEffect(() => {
+    // Check if current month is July (6) or August (7)
+    const month = new Date().getMonth();
+    setIsPromoActive(month === 6 || month === 7);
+  }, []);
 
   const toggleFAQ = (index: number) => {
     setOpenFAQIndex(openFAQIndex === index ? null : index);
@@ -176,7 +184,7 @@ export default function AdmissionsPage() {
                 <span className="w-3.5 h-3.5 rounded-full bg-[#2b4c7e]" />
                 <h3 className="text-2xl font-bold text-brand-charcoal">Cephas Core</h3>
               </div>
-              <div className="text-[#2b4c7e] font-extrabold text-3xl mb-4">$5,000 <span className="text-lg text-brand-charcoal/50 font-normal font-sans">Annual Tuition</span></div>
+              <div className="text-[#2b4c7e] font-extrabold text-3xl mb-4">$4,750 <span className="text-lg text-brand-charcoal/50 font-normal font-sans">Annual Tuition</span></div>
               <p className="text-brand-charcoal/70 text-sm mb-6 leading-relaxed">
                 Four mornings focused on building strong academic foundations. Ideal for families wanting structure and math/literacy support without a full-day commitment.
               </p>
@@ -199,7 +207,7 @@ export default function AdmissionsPage() {
                     ))}
                   </ul>
                 </div>
-                
+
                 <div className="mt-4 pt-4 border-t border-brand-charcoal/5 bg-[#eef2f7]/50 rounded-xl p-3">
                   <p className="text-xs font-bold uppercase tracking-wider text-brand-charcoal/60 mb-1.5">Parent Provides:</p>
                   <p className="text-xs text-brand-charcoal/75 font-semibold">Science, Social Studies, and Afternoon learning</p>
@@ -213,7 +221,22 @@ export default function AdmissionsPage() {
                 <span className="w-3.5 h-3.5 rounded-full bg-[#c27a5d]" />
                 <h3 className="text-2xl font-bold text-brand-charcoal">Cephas Flex</h3>
               </div>
-              <div className="text-[#c27a5d] font-extrabold text-3xl mb-4">$5,000 <span className="text-lg text-brand-charcoal/50 font-normal font-sans">Annual Tuition</span></div>
+              <div className="mb-4">
+                {isPromoActive ? (
+                  <div className="flex flex-col gap-1.5">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-[#c27a5d] font-extrabold text-3xl">$5,000</span>
+                      <span className="text-brand-charcoal/40 line-through text-lg font-semibold">$5,250</span>
+                      <span className="text-xs font-bold text-brand-charcoal/50 font-sans">Annual Tuition</span>
+                    </div>
+                    <span className="inline-flex items-center gap-1 bg-[#fdf5f2] text-[#c27a5d] text-[11px] font-extrabold px-2.5 py-0.5 rounded border border-[#c27a5d]/20 w-fit">
+                      🇺🇸 250th America&apos;s Birthday Special ($250 Off)
+                    </span>
+                  </div>
+                ) : (
+                  <div className="text-[#c27a5d] font-extrabold text-3xl">$5,250 <span className="text-lg text-brand-charcoal/50 font-normal font-sans">Annual Tuition</span></div>
+                )}
+              </div>
               <p className="text-brand-charcoal/70 text-sm mb-6 leading-relaxed">
                 A teacher-guided hybrid homeschool model. Perfect for families who want flexibility, guided at-home learning, and structured on-campus days.
               </p>
@@ -475,6 +498,7 @@ export default function AdmissionsPage() {
 
         </div>
       </section>
+      <PromoPopup />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import PromoBanner from "@/components/PromoBanner";
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
@@ -33,6 +34,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col relative bg-brand-stone">
+        <PromoBanner />
         <Navbar />
         <main className="flex-1 w-full">
           {children}
